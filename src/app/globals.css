@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * This is the ONLY place where colours, type and radii are defined. When the
+ * visual design arrives, map its palette and fonts onto these tokens first;
+ * most of the site will follow without touching components.
+ *
+ * Naming is semantic (what the colour is for), not literal (what it looks
+ * like), so a rebrand does not require renaming classes.
+ */
+@theme {
+  /* Brand scale — placeholder teal. Replace with the designer's palette. */
+  --color-brand-50: #eef7f6;
+  --color-brand-100: #d6ecea;
+  --color-brand-200: #add9d5;
+  --color-brand-300: #7cc0bb;
+  --color-brand-400: #4fa39e;
+  --color-brand-500: #2f8681;
+  --color-brand-600: #236b68;
+  --color-brand-700: #1e5553;
+  --color-brand-800: #1b4443;
+  --color-brand-900: #183938;
+
+  /* Semantic roles */
+  --color-bg: #ffffff;
+  --color-surface: #f7f8f8;
+  --color-surface-strong: #eef0f0;
+  --color-fg: #14201f;
+  --color-fg-muted: #55625f;
+  --color-fg-subtle: #7d8a87;
+  --color-border: #e2e6e5;
+  --color-accent: var(--color-brand-600);
+  --color-accent-hover: var(--color-brand-700);
+  --color-accent-fg: #ffffff;
+  --color-accent-soft: var(--color-brand-50);
+
+  /* Typography — system stacks for now; swap for next/font once chosen. */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Shape */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+
+  /* Layout */
+  --container-site: 72rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-brand-200);
+}
