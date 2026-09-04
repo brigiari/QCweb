@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
+import { PageTitle } from "@/components/sections/PageTitle";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Legal notice",
@@ -24,24 +24,27 @@ export default function LegalPage() {
     ["Contact", site.contactEmail],
   ];
   return (
-    <section>
-      <Container className="py-16 sm:py-20">
-        <SectionHeading as="h1" eyebrow="Legal" title="Legal notice" />
-        <dl className="mt-10 max-w-2xl divide-y divide-border rounded-lg border border-border">
+    <>
+      <PageTitle title="Legal notice" />
+      <Container className="mx-auto mt-[120px] max-w-[899px] pb-[160px] max-lg:mt-16 max-lg:pb-20">
+        <dl className="border-t-[8px] border-purple">
           {rows.map(([k, v]) => (
-            <div key={k} className="grid gap-1 px-5 py-4 sm:grid-cols-3">
-              <dt className="text-sm font-medium text-fg-muted">{k}</dt>
-              <dd className="text-sm sm:col-span-2">{v}</dd>
+            <div
+              key={k}
+              className="flex items-baseline justify-between gap-6 border-b-[8px] border-purple pb-[16px] pt-[19px] text-[26px] leading-none max-sm:flex-col max-sm:gap-2 max-sm:text-[18px]"
+            >
+              <dt className="font-bold">{k}</dt>
+              <dd className="text-right max-sm:text-left">{v}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fg-muted">
-          The content of this website is provided for general information about
-          our services and does not constitute medical, statistical or legal
-          advice for any specific case. Open-source projects linked from this
-          site are governed by the licences in their respective repositories.
+        <p className="mt-[48px] text-[20px] leading-[24px]">
+          The content of this website is provided for general information about our services
+          and does not constitute medical, statistical or legal advice for any specific case.
+          Open-source projects linked from this site are governed by the licences in their
+          respective repositories.
         </p>
       </Container>
-    </section>
+    </>
   );
 }

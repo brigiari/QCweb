@@ -6,9 +6,11 @@ methodology, and research tooling.
 
 Next.js 16 · TypeScript · Tailwind CSS 4 · static export · MIT
 
-> Status: **v0.1 — structure and first-draft content.** The visual design is a
-> neutral placeholder; the real design is being produced separately and will be
-> integrated on top (see [`docs/PLAN.md`](docs/PLAN.md)).
+> Status: **v0.3 — design integrated.** The site reproduces the designer's
+> version-1 mockup (`graphics/version1/`) at the 1512 px canvas width; see
+> [`docs/PLAN.md`](docs/PLAN.md) for the roadmap and
+> [`docs/DESIGN-HANDOFF.md`](docs/DESIGN-HANDOFF.md) for what is still needed
+> from the designer (font confirmation, icons, hi-res images).
 
 ## Site map
 
@@ -18,7 +20,7 @@ Next.js 16 · TypeScript · Tailwind CSS 4 · static export · MIT
 | `/clinical-research/` | Clinical research methodology & biostatistics |
 | `/evidence-synthesis/` | Evidence synthesis, consensus methods, clinical practice guidelines |
 | `/research/` | Research & tools — methodological research, open-source projects (→ GitHub), custom automation |
-| `/about/` · `/contact/` | Company, team, how to get in touch |
+| `/about/` · `/contact/` · `/faq/` | Company tiles, mailboxes and per-area shortcuts, all questions |
 | `/privacy/` · `/legal/` | Privacy notice, mandatory company information |
 
 ## Getting started

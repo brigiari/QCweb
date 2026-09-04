@@ -125,10 +125,16 @@ See `docs/DESIGN-HANDOFF.md` for the checklist of what to ask the designer for.
 - [ ] Enable GitHub Pages in repo settings; first public preview
 - [ ] Review and tighten copy (especially claims, tone, IT/EN terminology)
 
-### v0.3 — Design integration
-- [ ] Tokens + fonts from the mockup
-- [ ] Home page rebuilt to the design; header/footer; favicon/logo
-- [ ] Inner pages restyled; OG image (`opengraph-image`)
+### v0.3 — Design integration (done 2026-09-04, designer's version 1)
+- [x] Tokens + fonts from the mockup (palette from the SVG fills, type sizes
+      from the PDF text objects; Instrument Serif + Helvetica Neue/Inter)
+- [x] Home page rebuilt to the design; header (two variants) + full-screen
+      menu; footer; wordmark/Q mark traced from the files
+- [x] Service pages (hero, approach/team, offer carousel, process grid,
+      typical clients, FAQ accordion, "something else"), About, Contacts, FAQ
+- [ ] Icons for "Typical clients" (placeholders in the mockup too)
+- [ ] Favicon / OG image from the Q mark; fonts confirmed by the designer
+- See `docs/DESIGN-HANDOFF.md` for what is still needed from the designer.
 
 ### v0.4 — Launch
 - [ ] Custom domain + HTTPS; `site.url` updated; sitemap verified

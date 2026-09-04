@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about/", "/contact/"];
+  const staticRoutes = ["", "/about/", "/contact/", "/faq/"];
   const pillarRoutes = pillars.map((p) => `/${p.slug}/`);
   return [...staticRoutes, ...pillarRoutes].map((path) => ({
     url: `${site.url}${path || "/"}`,

@@ -5,7 +5,7 @@ import { PillarPage } from "@/components/PillarPage";
 const pillar = getPillar("clinical-research");
 
 export const metadata: Metadata = {
-  title: pillar.title,
+  title: pillar.title.replace("\n", " "),
   description: pillar.seoDescription,
 };
 

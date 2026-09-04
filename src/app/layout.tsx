@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
+import { Instrument_Serif, Inter } from "next/font/google";
 import { site } from "@/content/site";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import "./globals.css";
+
+/**
+ * Fonts. The mockup uses Helvetica Neue (an Apple system font, used as-is
+ * where installed) and Instrument Serif (free, Google Fonts). Inter is loaded
+ * as the fallback for Helvetica Neue on systems without it.
+ */
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -21,11 +40,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.locale} className="h-full antialiased">
-      <body className="flex min-h-full flex-col">
+    <html
+      lang={site.locale}
+      className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-cream text-ink">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-bg focus:px-3 focus:py-2 focus:text-sm focus:shadow"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:px-3 focus:py-2 focus:text-sm"
         >
           Skip to content
         </a>

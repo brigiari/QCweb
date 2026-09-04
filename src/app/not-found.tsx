@@ -1,23 +1,16 @@
-import { Button } from "@/components/ui/Button";
+import { PageTitle } from "@/components/sections/PageTitle";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { LineButton } from "@/components/ui/LineButton";
 
 export default function NotFound() {
   return (
-    <section>
-      <Container className="py-24 sm:py-32">
-        <SectionHeading
-          as="h1"
-          eyebrow="404"
-          title="Page not found"
-          lede="The page you asked for does not exist or has moved."
-        />
-        <div className="mt-8">
-          <Button href="/" variant="secondary">
-            Back to the home page
-          </Button>
+    <>
+      <PageTitle title="Page not found" lede="The page you asked for does not exist or has moved." />
+      <Container className="flex justify-center pb-[200px] pt-[80px]">
+        <div className="w-[268px]">
+          <LineButton href="/">Back to home</LineButton>
         </div>
       </Container>
-    </section>
+    </>
   );
 }

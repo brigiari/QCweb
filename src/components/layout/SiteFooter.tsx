@@ -1,52 +1,47 @@
 import Link from "next/link";
-import { footerNav } from "@/content/nav";
-import { pillars } from "@/content/pillars";
+import { footerColumns } from "@/content/nav";
 import { site } from "@/content/site";
+import { QMark } from "@/components/brand/QMark";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "./Logo";
 
+/** Dark footer: Q mark + rule, description, three link columns, legal line. */
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-24 border-t border-border bg-surface">
-      <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <Logo className="text-lg" />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-fg-muted">
-              {site.description}
-            </p>
-            <p className="mt-4 text-sm text-fg-muted">{site.location}</p>
-          </div>
-
-          <FooterColumn title="What we do">
-            {pillars.map((p) => (
-              <FooterLink key={p.slug} href={`/${p.slug}/`}>
-                {p.shortTitle}
-              </FooterLink>
-            ))}
-          </FooterColumn>
-
-          <FooterColumn title="Company">
-            <FooterLink href="/about/">About</FooterLink>
-            <FooterLink href="/contact/">Contact</FooterLink>
-            {site.social.map((s) => (
-              <FooterLink key={s.href} href={s.href}>
-                {s.label}
-              </FooterLink>
-            ))}
-          </FooterColumn>
-
-          <FooterColumn title="Legal">
-            {footerNav.map((item) => (
-              <FooterLink key={item.href} href={item.href}>
-                {item.label}
-              </FooterLink>
-            ))}
-          </FooterColumn>
+    <footer className="bg-ink text-cream">
+      <Container className="pb-[24px] pt-[53px]">
+        <div className="flex items-end gap-[14px]">
+          <Link href="/" aria-label="Quantum Care — home" className="shrink-0">
+            <QMark className="h-[57px] w-[44px]" />
+          </Link>
+          <div className="mb-0 h-[7px] flex-1 bg-cream" />
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-fg-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-[90px] grid grid-cols-[1fr_295px_207px_214px] gap-x-6 max-lg:grid-cols-2 max-lg:gap-y-10 max-sm:grid-cols-1">
+          <p className="max-w-[450px] text-[18px] leading-[22px] max-lg:col-span-2 max-sm:col-span-1">
+            {site.description}
+          </p>
+          {footerColumns.map((col) => (
+            <div key={col.title}>
+              <h2 className="text-[18px] font-bold uppercase leading-[22px]">{col.title}</h2>
+              <ul className="mt-[24px] space-y-[4px]">
+                {col.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-[18px] leading-[22px] transition-opacity hover:opacity-70"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-[60px] h-[7px] bg-cream" />
+        <div className="mt-[26px] flex flex-wrap justify-between gap-x-6 gap-y-2 text-[18px] leading-[22px] max-sm:text-[15px]">
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
@@ -56,46 +51,5 @@ export function SiteFooter() {
         </div>
       </Container>
     </footer>
-  );
-}
-
-function FooterColumn({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="md:col-span-2">
-      <h2 className="text-xs font-semibold uppercase tracking-wider text-fg-subtle">
-        {title}
-      </h2>
-      <ul className="mt-4 space-y-2.5">{children}</ul>
-    </div>
-  );
-}
-
-function FooterLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  const external = href.startsWith("http");
-  const cls = "text-sm text-fg-muted transition-colors hover:text-fg";
-  return (
-    <li>
-      {external ? (
-        <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
-          {children}
-        </a>
-      ) : (
-        <Link href={href} className={cls}>
-          {children}
-        </Link>
-      )}
-    </li>
   );
 }

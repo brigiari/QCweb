@@ -5,7 +5,7 @@ import { PillarPage } from "@/components/PillarPage";
 const pillar = getPillar("evidence-synthesis");
 
 export const metadata: Metadata = {
-  title: pillar.title,
+  title: pillar.title.replace("\n", " "),
   description: pillar.seoDescription,
 };
 
