@@ -19,8 +19,13 @@ consultancy). Next.js 16 App Router, TypeScript, Tailwind 4, **static export**.
 the source of truth for the visual design. The site reproduces it 1:1 at the
 1512 px canvas width:
 
-- Palette and fonts: `globals.css` `@theme` (cream/ink/purple/lavender/sand/grey;
-  Instrument Serif for headings with line-height 1; Helvetica Neue → Inter).
+- Palette and fonts: `globals.css` `@theme` (cream/ink/purple/lavender/sand/grey).
+  Designer's fonts are **Lastik** (headings, line-height 1) and **Neue Haas
+  Grotesk** (text) — both commercial and not yet licensed; the site runs on
+  Fraunces / Helvetica Neue → Inter stand-ins (`src/app/layout.tsx`). Never
+  add font files from "free download" sites; see `docs/DESIGN-HANDOFF.md`.
+- `public/` assets must go through `asset()` (`src/lib/assets.ts`) so they
+  work under the GitHub Pages sub-path.
 - Type sizes are the mockup's pixel values (100/80/60/45/30/26/22/20/18/15),
   written as Tailwind arbitrary values — do not replace them with a scale.
 - Gutter is 40 px left / **22 px right** (the designer's frame); cards are

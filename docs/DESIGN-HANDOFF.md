@@ -16,19 +16,47 @@ guessed except the font names:
 | Wordmark, Q mark, ↗ / → arrows, hamburger, ×, + / − | SVG paths | `src/components/brand/` |
 | Two gradient images | embedded JPEGs | `public/images/` |
 
-## Fonts — needs confirmation
+## Fonts — confirmed by the designer, not yet licensed
 
-Identified visually (the files do not name them):
+- **Headings:** **Lastik** (commercial display serif).
+- **Body:** **Neue Haas Grotesk** (Monotype; Text and Display cuts).
 
-- **Headings:** Instrument Serif — free (Google Fonts), bundled at build time.
-- **Body:** Helvetica Neue — Apple system font, used where installed (macOS,
-  iOS); Inter is bundled as the fallback elsewhere (Windows, Android, Linux).
+Both are commercial. The "free download" links that circulate are unlicensed
+copies and must not be used on a company website. Until licensed files are
+available the site uses free stand-ins, selected in `src/app/layout.tsx`:
 
-To ask the designer:
+- headings → **Fraunces** (Google Fonts; soft, wide serif — the closest free
+  face to Lastik; the display optical size and soft terminals are enabled in
+  `globals.css`);
+- body → **Helvetica Neue** where installed (same lineage as Neue Haas
+  Grotesk, near-identical metrics), **Inter** elsewhere.
 
-- [ ] Confirm both font names and the weights used (Regular + Bold for the sans).
-- [ ] If the site must look identical on Windows too, a licensed Helvetica
-      Neue webfont is needed (or agree that Inter is the fallback).
+The CSS font stacks already list "Lastik" and "Neue Haas Grotesk Text /
+Display" first, so a machine that has them installed shows the real faces.
+
+### Installing the licensed fonts (when purchased)
+
+1. Put the `.woff2` files in `src/fonts/` (e.g. `Lastik-Regular.woff2`,
+   `NeueHaasGroteskText-Regular.woff2`, `NeueHaasGroteskText-Bold.woff2`).
+2. In `src/app/layout.tsx` replace the two `next/font/google` calls with
+   `next/font/local`, keeping the variable names `--font-serif-face` and
+   `--font-sans-face`:
+   ```ts
+   import localFont from "next/font/local";
+   const serif = localFont({ src: "../fonts/Lastik-Regular.woff2", variable: "--font-serif-face" });
+   const sans = localFont({
+     src: [
+       { path: "../fonts/NeueHaasGroteskText-Regular.woff2", weight: "400" },
+       { path: "../fonts/NeueHaasGroteskText-Bold.woff2", weight: "700" },
+     ],
+     variable: "--font-sans-face",
+   });
+   ```
+3. Remove the `font-variation-settings` line from `.font-serif` in
+   `globals.css` (it only exists for Fraunces).
+4. Where to license: Neue Haas Grotesk — Monotype / Linotype (webfont
+   licence), or Adobe Fonts with a Creative Cloud subscription (web use
+   included); Lastik — its foundry (see the credits on the font page).
 
 ## Still missing from the design
 

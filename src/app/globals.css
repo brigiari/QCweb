@@ -24,8 +24,11 @@
   --color-grey: #bbbbbb;
   --color-placeholder: #d9d9d9;
 
-  --font-serif: var(--font-instrument-serif), "Instrument Serif", Georgia, "Times New Roman", serif;
-  --font-sans: "Helvetica Neue", var(--font-inter), Helvetica, Arial, sans-serif;
+  /* Designer's faces first (used automatically once licensed files are installed
+     locally or loaded via next/font/local), then the free stand-ins. */
+  --font-serif: "Lastik", var(--font-serif-face), Georgia, "Times New Roman", serif;
+  --font-sans: "Neue Haas Grotesk Text", "Neue Haas Grotesk Display", "Helvetica Neue",
+    var(--font-sans-face), Helvetica, Arial, sans-serif;
 
   /* Mockup canvas width and page gutter. */
   --container-site: 1512px;
@@ -49,11 +52,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Serif display headings: the mockup sets line-height equal to font-size. */
+/* Serif display headings: the mockup sets line-height equal to font-size.
+   The variation settings apply to the Fraunces stand-in (display optical size,
+   soft terminals) and are ignored by fonts without those axes. */
 .font-serif {
   line-height: 1;
   font-weight: 400;
   letter-spacing: 0;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
 }
 
 :focus-visible {

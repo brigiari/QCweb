@@ -1,5 +1,6 @@
 import { about } from "@/content/about";
 import { toneClass } from "@/components/ui/Text";
+import { asset } from "@/lib/assets";
 
 /** About: 3 × 2 grid — text tile, image, text tile / text tile, image, text tile. */
 export function AboutTiles() {
@@ -34,7 +35,7 @@ function ImageTile({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="aspect-[504/645] max-lg:aspect-[3/1]">
       {/* eslint-disable-next-line @next/next/no-img-element -- static export, no image optimisation */}
-      <img src={src} alt={alt} className="size-full object-cover" loading="lazy" />
+      <img src={asset(src)} alt={alt} className="size-full object-cover" />
     </div>
   );
 }
