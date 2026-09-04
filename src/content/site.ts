@@ -4,23 +4,35 @@ import type { SiteConfig } from "./types";
  * Site-wide settings.
  *
  * TODO before going live (search for "TODO" across src/content):
- *  - contactEmail: the real mailbox (currently a placeholder)
+ *  - contactEmail / contacts: real mailboxes (the mockup shows
+ *    info@ / admin@ / work@quantumcare.com — placeholders until confirmed)
+ *  - social: real LinkedIn / GitHub URLs
  *  - url: the final domain once registered
  *  - legal.*: identifiers from the visura camerale
  */
 export const site: SiteConfig = {
   name: "Quantum Care",
   legalName: "Quantum Care S.r.l.s.",
-  tagline: "Methodology, statistics and evidence for clinical research.",
+  tagline: "Methodology, statistics and evidence for clinical research",
   description:
     "Quantum Care is an independent consultancy supporting clinical research: study design and biostatistics, evidence synthesis and guideline methodology, and research tools that automate the repetitive parts of the work.",
   // TODO: replace with the final domain (no trailing slash).
   url: "https://quantumcare.example",
   locale: "en",
   // TODO: replace with the real contact address.
-  contactEmail: "info@quantumcare.example",
+  contactEmail: "info@quantumcare.com",
+  contacts: [
+    // TODO: confirm which mailboxes exist.
+    { label: "Info", value: "info@quantumcare.com", href: "mailto:info@quantumcare.com" },
+    { label: "Admin", value: "admin@quantumcare.com", href: "mailto:admin@quantumcare.com" },
+    { label: "Work with us", value: "work@quantumcare.com", href: "mailto:work@quantumcare.com" },
+  ],
+  social: [
+    // TODO: replace with the real profile URLs.
+    { label: "Linkedin", value: "Quantumcare/linkedin.it", href: "https://www.linkedin.com/" },
+    { label: "Github", value: "Quantumcare/github.it", href: "https://github.com/brigiari" },
+  ],
   location: "Umbria, Italy",
-  social: [{ label: "GitHub", href: "https://github.com/brigiari" }],
   process: [
     {
       title: "Discovery call",

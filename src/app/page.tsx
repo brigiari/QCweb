@@ -1,25 +1,31 @@
-import { Hero } from "@/components/sections/Hero";
-import { PillarGrid } from "@/components/sections/PillarGrid";
-import { PrinciplesGrid } from "@/components/sections/PrinciplesGrid";
-import { ProjectCards } from "@/components/sections/ProjectCards";
-import { ContactCta } from "@/components/sections/ContactCta";
+import { home } from "@/content/home";
+import { HomeHero } from "@/components/sections/HomeHero";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { PrinciplesSection } from "@/components/sections/PrinciplesSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { mailto } from "@/lib/mailto";
 
-/**
- * Home page = a sequence of sections. When the designer's home mockup arrives,
- * this is the composition to rebuild: swap sections in/out, keep the content.
- */
+/** Home page: the sequence of sections from the designer's HOME mockup. */
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <PillarGrid />
-      <PrinciplesGrid />
-      <ProjectCards
-        eyebrow="Research & tools"
-        title="What we are building"
-        lede="Open-source tools for clinical-research teams, born from our own work. See the Research section for the full programme."
+      <HomeHero />
+      <ServicesSection />
+      <PrinciplesSection
+        eyebrow={home.principles.eyebrow}
+        title={home.principles.title}
+        band
+        className="mt-[148px] max-lg:mt-20"
       />
-      <ContactCta />
+      <ProjectsSection />
+      <CtaBand
+        heading={home.cta.heading}
+        body={home.cta.body}
+        buttonLabel={home.cta.buttonLabel}
+        href={mailto(home.cta.mailSubject)}
+        className="mt-[159px] max-lg:mt-20"
+      />
     </>
   );
 }

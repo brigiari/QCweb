@@ -13,9 +13,11 @@ export const pillars: Pillar[] = [
   // ---------------------------------------------------------------------------
   {
     slug: "clinical-research",
-    eyebrow: "01 — Methodology & biostatistics",
-    title: "Clinical research methodology",
+    eyebrow: "Methodology & biostatistics",
+    title: "Clinical research\nmethodology",
     shortTitle: "Clinical research",
+    menuTitle: "Clinical research methodology",
+    tone: "lavender",
     tagline: "From research question to defensible result.",
     summary:
       "Study design, sample size and simulation, statistical analysis plans, analysis and reporting — for trials, observational studies, registries and real-world evidence.",
@@ -135,9 +137,11 @@ export const pillars: Pillar[] = [
   // ---------------------------------------------------------------------------
   {
     slug: "evidence-synthesis",
-    eyebrow: "02 — Evidence-based medicine",
-    title: "Evidence synthesis and guidelines",
+    eyebrow: "Evidence-based medicine",
+    title: "Evidence synthesis\nand guidelines",
     shortTitle: "Evidence synthesis",
+    menuTitle: "Evidence synthesis and guidelines",
+    tone: "sand",
     tagline: "Evidence, synthesised rigorously — and faster.",
     summary:
       "Systematic and scoping reviews with LLM-assisted workflows, consensus methods (Delphi, nominal group) and methodological support for clinical practice guidelines.",
@@ -247,9 +251,11 @@ export const pillars: Pillar[] = [
   // ---------------------------------------------------------------------------
   {
     slug: "research",
-    eyebrow: "03 — Research & tools",
-    title: "Research and tools",
+    eyebrow: "Research & tools",
+    title: "Research\nand tools",
     shortTitle: "Research & tools",
+    menuTitle: "Research and tools",
+    tone: "grey",
     tagline: "We build what we wish existed.",
     summary:
       "Our own methodological research, open-source tools for clinical research teams, and custom automation built for a client's specific workflow.",
@@ -301,6 +307,7 @@ export const pillars: Pillar[] = [
       "Evidence-synthesis groups and guideline teams",
       "Registry owners and data managers",
       "Academic partners interested in joint methodological projects",
+      "Health-tech companies building products for clinical research",
     ],
     process: [
       {
